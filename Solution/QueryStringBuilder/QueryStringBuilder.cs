@@ -1,7 +1,7 @@
-﻿using QueryStringBuilder.Abstraction;
+﻿using Power.QueryStringBuilder.Abstraction;
 using System.Text;
 
-namespace QueryStringBuilder
+namespace Power.QueryStringBuilder
 {
     internal class QueryStringBuilder : IQueryStringBuilder
     {

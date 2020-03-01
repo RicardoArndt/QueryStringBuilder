@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\QueryStringBuilder\QueryStringBuilder.csproj" />
+    <ProjectReference Include="..\QueryStringBuilder\Power.QueryStringBuilder.csproj" />
   </ItemGroup>
 
 </Project>

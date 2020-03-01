@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryStringBuilder", "QueryStringBuilder\QueryStringBuilder.csproj", "{5539E367-D191-418F-985B-36AA97717A91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Power.QueryStringBuilder", "QueryStringBuilder\Power.QueryStringBuilder.csproj", "{5539E367-D191-418F-985B-36AA97717A91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryStringBuilder.Abstraction", "QueryStringBuilder.Abstraction\QueryStringBuilder.Abstraction.csproj", "{12601FFF-CCB6-4C1F-B05E-4E9C3F7DA40A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Power.QueryStringBuilder.Abstraction", "QueryStringBuilder.Abstraction\Power.QueryStringBuilder.Abstraction.csproj", "{12601FFF-CCB6-4C1F-B05E-4E9C3F7DA40A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryStringBuilder.Tests", "QueryStringBuilder.Tests\QueryStringBuilder.Tests.csproj", "{BE5D17F7-63AC-4A66-88E3-955A9CFAC872}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Power.QueryStringBuilder.Tests", "QueryStringBuilder.Tests\Power.QueryStringBuilder.Tests.csproj", "{BE5D17F7-63AC-4A66-88E3-955A9CFAC872}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

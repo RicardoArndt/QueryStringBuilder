@@ -2,7 +2,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace QueryStringBuilder.Tests
+namespace Power.QueryStringBuilder.Tests
 {
     public class QueryStringTests
     {

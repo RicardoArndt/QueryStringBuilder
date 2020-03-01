@@ -1,6 +1,6 @@
-﻿using QueryStringBuilder.Abstraction;
+﻿using Power.QueryStringBuilder.Abstraction;
 
-namespace QueryStringBuilder
+namespace Power.QueryStringBuilder
 {
     internal class QueryStringFactory : IQueryStringFactory
     {

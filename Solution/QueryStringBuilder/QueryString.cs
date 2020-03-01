@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Web;
 
-namespace QueryStringBuilder
+namespace Power.QueryStringBuilder
 {
     internal class QueryString
     {

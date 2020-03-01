@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using QueryStringBuilder.Abstraction;
+using Power.QueryStringBuilder.Abstraction;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("QueryStringBuilder.Tests")]
-namespace QueryStringBuilder.DependencyInjection
+[assembly: InternalsVisibleTo("Power.QueryStringBuilder.Tests")]
+namespace Power.QueryStringBuilder.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {

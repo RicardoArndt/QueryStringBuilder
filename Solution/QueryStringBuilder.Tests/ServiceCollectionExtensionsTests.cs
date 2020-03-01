@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
-using QueryStringBuilder.Abstraction;
-using QueryStringBuilder.DependencyInjection;
+using Power.QueryStringBuilder.Abstraction;
+using Power.QueryStringBuilder.DependencyInjection;
 using Xunit;
 
-namespace QueryStringBuilder.Tests
+namespace Power.QueryStringBuilder.Tests
 {
     public class ServiceCollectionExtensionsTests
     {

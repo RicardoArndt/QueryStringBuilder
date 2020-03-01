@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl />
+    <RepositoryUrl>https://github.com/RicardoArndt/QueryStringBuilder</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\QueryStringBuilder.Abstraction\QueryStringBuilder.Abstraction.csproj" />
+    <ProjectReference Include="..\QueryStringBuilder.Abstraction\Power.QueryStringBuilder.Abstraction.csproj" />
   </ItemGroup>
 
 </Project>
