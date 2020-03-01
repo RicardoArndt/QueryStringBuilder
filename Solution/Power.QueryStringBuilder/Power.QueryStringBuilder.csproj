@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\QueryStringBuilder.Abstraction\Power.QueryStringBuilder.Abstraction.csproj" />
+    <ProjectReference Include="..\Power.QueryStringBuilder.Abstraction\Power.QueryStringBuilder.Abstraction.csproj" />
   </ItemGroup>
 
 </Project>
