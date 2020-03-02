@@ -7,6 +7,23 @@ namespace Power.QueryStringBuilder.Tests
     public class QueryStringTests
     {
         [Fact]
+        public void AddSourceQueryString_ReturnsExpectedResultForNativeClassArray()
+        {
+            var mock = new[]
+            {
+                1, 2, 3, 4
+            };
+
+            var queryString = new QueryString();
+
+            queryString.AddSourceQueryString(mock, "Status");
+
+            var result = queryString.QueryStringCollection.ToString();
+
+            result.Should().Be("Status=1&Status=2&Status=3&Status=4");
+        }
+
+        [Fact]
         public void AddSourceQueryString_ReturnsExpectedResultForNativeClass()
         {
             var mock = new MockQueryString1

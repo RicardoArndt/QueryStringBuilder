@@ -10,9 +10,8 @@ namespace Power.QueryStringBuilder.Tests
         {
             var status = 1;
             var tipo = "Global";
-            var queryString = new QueryStringFactory();
 
-            var result = queryString.From(status, "Status").With(tipo, "Tipo");
+            var result = new QueryStringFactory().From(status, "Status").With(tipo, "Tipo");
 
             result.Build().Should().Be("?Status=1&Tipo=Global");
         }

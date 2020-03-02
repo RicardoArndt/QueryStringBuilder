@@ -1,9 +1,8 @@
-﻿using Power.QueryStringBuilder.Abstraction;
-using System.Text;
+﻿using System.Text;
 
 namespace Power.QueryStringBuilder
 {
-    internal class QueryStringBuilder : IQueryStringBuilder
+    public class QueryStringBuilder
     {
         private readonly QueryString _instance;
 
@@ -12,7 +11,7 @@ namespace Power.QueryStringBuilder
             _instance = queryString;
         }
 
-        public IQueryStringBuilder With<TSource>(TSource source, string basePath = "")
+        public QueryStringBuilder With<TSource>(TSource source, string basePath = "")
         {
             _instance.AddSourceQueryString(source, string.Empty, basePath);
 

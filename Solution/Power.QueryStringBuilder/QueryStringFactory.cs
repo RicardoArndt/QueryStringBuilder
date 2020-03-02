@@ -1,17 +1,10 @@
-﻿using Power.QueryStringBuilder.Abstraction;
-
-namespace Power.QueryStringBuilder
+﻿namespace Power.QueryStringBuilder
 {
-    internal class QueryStringFactory : IQueryStringFactory
+    public class QueryStringFactory
     {
-        private readonly QueryString _instance;
+        private readonly QueryString _instance = new QueryString();
 
-        public QueryStringFactory()
-        {
-            _instance = new QueryString();
-        }
-
-        public IQueryStringBuilder From<TSource>(TSource source, string basePath = "")
+        public QueryStringBuilder From<TSource>(TSource source, string basePath = "")
         {
             _instance.AddSourceQueryString(source, string.Empty, basePath);
 

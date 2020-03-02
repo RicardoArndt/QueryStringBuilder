@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Power.QueryStringBuilder
 {
-    internal class QueryString
+    public class QueryString
     {
         public NameValueCollection QueryStringCollection { get; set; }
         private string FullPath { get; set; }
@@ -30,12 +30,23 @@ namespace Power.QueryStringBuilder
 
             var properties = typeOfSource
                 .GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                .Where(t => t.Name != "Chars" && t.Name != "Length")
+                .Where(t => (t.Name != "Chars" && t.Name != "Length")
+                && !(typeOfSource.IsArray && t.PropertyType.Namespace.StartsWith("System")))
                 .ToArray();
 
             if (properties.Length == 0)
             {
-                AddSimpleQueryString(source, path);
+                if (typeOfSource.IsArray)
+                {
+                    foreach (var value in (source as Array))
+                    {
+                        AddSourceQueryString(value, path);
+                    }
+                }
+                else
+                {
+                    AddSimpleQueryString(source, path);
+                }
             }
 
             foreach (var prop in properties)
@@ -57,7 +68,7 @@ namespace Power.QueryStringBuilder
                     if (string.IsNullOrWhiteSpace(FullPath))
                     {
                         FullPath = path;
-                    } 
+                    }
 
                     var fullPath = GetFullPath(prop, FullPath);
                     FullPath = fullPath.ToString();
@@ -93,7 +104,7 @@ namespace Power.QueryStringBuilder
             if (propValue == null) return;
             var propValueResult = prop.GetValue(source);
 
-            if(prop.PropertyType == typeof(DateTime))
+            if (prop.PropertyType == typeof(DateTime))
             {
                 propValueResult = ((DateTime)propValueResult).ToString("yyyy-MM-dd");
             }
@@ -105,7 +116,7 @@ namespace Power.QueryStringBuilder
         {
             var fullPath = new StringBuilder(string.Empty);
 
-            if (!string.IsNullOrWhiteSpace(BasePath) 
+            if (!string.IsNullOrWhiteSpace(BasePath)
                 && FullPath.IndexOf(BasePath, StringComparison.Ordinal) == -1
                 && path.IndexOf(BasePath, StringComparison.Ordinal) == -1)
             {
@@ -134,7 +145,7 @@ namespace Power.QueryStringBuilder
                 fullPath.Append(".");
             }
 
-            if (!string.IsNullOrWhiteSpace(fullPath.ToString()) 
+            if (!string.IsNullOrWhiteSpace(fullPath.ToString())
                 && !string.IsNullOrEmpty(prop.Name)
                 && fullPath.ToString().IndexOf(".", StringComparison.Ordinal) == -1)
             {

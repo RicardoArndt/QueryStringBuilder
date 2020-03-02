@@ -11,8 +11,4 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Power.QueryStringBuilder.Abstraction\Power.QueryStringBuilder.Abstraction.csproj" />
-  </ItemGroup>
-
 </Project>
