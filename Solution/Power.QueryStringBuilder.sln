@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Power.QueryStringBuilder", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Power.QueryStringBuilder.Tests", "Power.QueryStringBuilder.Tests\Power.QueryStringBuilder.Tests.csproj", "{BE5D17F7-63AC-4A66-88E3-955A9CFAC872}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Power.QueryStringBuilder.Abstraction", "Power.QueryStringBuilder.Abstraction\Power.QueryStringBuilder.Abstraction.csproj", "{C7F52FE8-8A38-4E50-A81D-BAEA9C6E437E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BE5D17F7-63AC-4A66-88E3-955A9CFAC872}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE5D17F7-63AC-4A66-88E3-955A9CFAC872}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE5D17F7-63AC-4A66-88E3-955A9CFAC872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F52FE8-8A38-4E50-A81D-BAEA9C6E437E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F52FE8-8A38-4E50-A81D-BAEA9C6E437E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F52FE8-8A38-4E50-A81D-BAEA9C6E437E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F52FE8-8A38-4E50-A81D-BAEA9C6E437E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

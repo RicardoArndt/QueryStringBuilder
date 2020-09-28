@@ -1,10 +1,12 @@
-﻿namespace Power.QueryStringBuilder
+﻿using Power.QueryStringBuilder.Abstraction;
+
+namespace Power.QueryStringBuilder
 {
-    public class QueryStringFactory
+    internal class QueryStringFactory : IQueryStringFactory
     {
         private readonly QueryString _instance = new QueryString();
 
-        public QueryStringBuilder From<TSource>(TSource source, string basePath = "")
+        public IQueryStringBuilder From<TSource>(TSource source, string basePath = "")
         {
             _instance.AddSourceQueryString(source, string.Empty, basePath);
 
