@@ -106,6 +106,24 @@ namespace Power.QueryStringBuilder.Tests
         }
 
         [Fact]
+        public void AddSourceQueryString_Null_ReturnsExpectedResultClassWithClass2()
+        {
+            var mock = new MockQueryString3
+            {
+                MockQueryString2 = null,
+                Teste = "Teste1"
+            };
+
+            var queryString = new QueryString();
+
+            queryString.AddSourceQueryString(mock);
+
+            var result = queryString.QueryStringCollection.ToString();
+
+            result.Should().Be("Teste=Teste1");
+        }
+
+        [Fact]
         public void AddSourceQueryString_ReturnsExpectedResultClassWithArrayClassAndArrayNative()
         {
             var mock = new MockQueryString3

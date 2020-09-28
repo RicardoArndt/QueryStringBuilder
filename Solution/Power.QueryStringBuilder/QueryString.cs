@@ -22,9 +22,7 @@ namespace Power.QueryStringBuilder
         public void AddSourceQueryString<TSource>(TSource source, string path = "", string basePath = "")
         {
             if (!string.IsNullOrWhiteSpace(basePath))
-            {
                 BasePath = basePath;
-            }
 
             var typeOfSource = source.GetType();
 
@@ -39,14 +37,10 @@ namespace Power.QueryStringBuilder
                 if (typeOfSource.IsArray)
                 {
                     foreach (var value in (source as Array))
-                    {
                         AddSourceQueryString(value, path);
-                    }
                 }
                 else
-                {
                     AddSimpleQueryString(source, path);
-                }
             }
 
             foreach (var prop in properties)
@@ -54,25 +48,21 @@ namespace Power.QueryStringBuilder
                 var propType = prop.PropertyType;
 
                 if (propType.IsArray)
-                {
                     AddArrayQueryString(prop, source);
-                }
 
                 if (propType.Namespace != null && (propType.Namespace.StartsWith("System") && !propType.IsArray))
-                {
                     AddNativeQueryString(prop, source, path);
-                }
 
                 if (propType.Namespace != null && (!propType.Namespace.StartsWith("System") && !propType.IsArray))
                 {
                     if (string.IsNullOrWhiteSpace(FullPath))
-                    {
                         FullPath = path;
-                    }
 
                     var fullPath = GetFullPath(prop, FullPath);
                     FullPath = fullPath.ToString();
-                    AddSourceQueryString(prop.GetValue(source), FullPath);
+
+                    if (prop.GetValue(source) != default)
+                        AddSourceQueryString(prop.GetValue(source), FullPath);
                 }
 
                 FullPath = string.Empty;
@@ -88,11 +78,11 @@ namespace Power.QueryStringBuilder
 
         private void AddArrayQueryString<TSource>(PropertyInfo prop, TSource source)
         {
-            if (!(prop.GetValue(source) is Array values)) return;
+            if (!(prop.GetValue(source) is Array values)) 
+                return;
+
             foreach (var value in values)
-            {
                 AddSourceQueryString(value, prop.Name);
-            }
         }
 
         private void AddNativeQueryString<TSource>(PropertyInfo prop, TSource source, string path = "")
@@ -101,13 +91,13 @@ namespace Power.QueryStringBuilder
 
             var propValue = prop.GetValue(source);
 
-            if (propValue == null) return;
+            if (propValue == null) 
+                return;
+
             var propValueResult = prop.GetValue(source);
 
             if (prop.PropertyType == typeof(DateTime))
-            {
                 propValueResult = ((DateTime)propValueResult).ToString("yyyy-MM-dd");
-            }
 
             QueryStringCollection.Add(fullPath.ToString(), propValueResult.ToString());
         }
@@ -123,15 +113,11 @@ namespace Power.QueryStringBuilder
                 fullPath.Append(BasePath);
 
                 if (!string.IsNullOrWhiteSpace(path))
-                {
                     fullPath.Append(".");
-                }
             }
 
             if (!string.IsNullOrWhiteSpace(path))
-            {
                 fullPath.Append(path);
-            }
 
             return fullPath;
         }
@@ -141,16 +127,12 @@ namespace Power.QueryStringBuilder
             var fullPath = GetFullPathWithoutPropertyInfo(path);
 
             if (!string.IsNullOrEmpty(prop.Name) && !string.IsNullOrEmpty(path))
-            {
                 fullPath.Append(".");
-            }
 
             if (!string.IsNullOrWhiteSpace(fullPath.ToString())
                 && !string.IsNullOrEmpty(prop.Name)
                 && fullPath.ToString().IndexOf(".", StringComparison.Ordinal) == -1)
-            {
                 fullPath.Append(".");
-            }
 
             fullPath.Append(prop.Name);
 
