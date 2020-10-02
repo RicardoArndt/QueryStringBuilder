@@ -21,7 +21,7 @@ namespace Power.QueryStringBuilder
 
         public string Build()
         {
-            var stringBuilder = new StringBuilder("?");
+            var stringBuilder = new StringBuilder();
 
             stringBuilder.Append(_instance.QueryStringCollection);
 

@@ -63,7 +63,7 @@ namespace Power.QueryStringBuilder.Tests
         [Fact]
         public void AddSourceQueryString_ReturnsExpectedResultClassWithDate()
         {
-            var date = new DateTime();
+            var date = new DateTime(2020, 10, 02);
 
             var mock = new MockQueryStringZero
             {
@@ -76,7 +76,7 @@ namespace Power.QueryStringBuilder.Tests
 
             var result = queryString.QueryStringCollection.ToString();
 
-            result.Should().Be($"Data={date.ToString("yyyy-MM-dd")}");
+            result.Should().Be($"Data=2020-10-02");
         }
 
         [Fact]
