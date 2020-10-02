@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl />
     <RepositoryUrl>https://github.com/RicardoArndt/QueryStringBuilder</RepositoryUrl>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>Ricardo Guilherme Arndt</Authors>
     <PackageIcon>preferencessystempower_103835.png</PackageIcon>
   </PropertyGroup>
