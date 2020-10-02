@@ -96,6 +96,9 @@ namespace Power.QueryStringBuilder
 
             var propValueResult = prop.GetValue(source);
 
+            if (prop.PropertyType == typeof(DateTime?))
+                propValueResult = ((DateTime?)propValueResult).GetValueOrDefault().ToString("yyyy-MM-dd");
+
             if (prop.PropertyType == typeof(DateTime))
                 propValueResult = ((DateTime)propValueResult).ToString("yyyy-MM-dd");
 

@@ -41,6 +41,23 @@ namespace Power.QueryStringBuilder.Tests
         }
 
         [Fact]
+        public void AddSourceQueryString_ReturnsExpectedResultForNativeClass_StatusDefaultValue()
+        {
+            var mock = new MockQueryString1
+            {
+                Status = default
+            };
+
+            var queryString = new QueryString();
+
+            queryString.AddSourceQueryString(mock);
+
+            var result = queryString.QueryStringCollection.ToString();
+
+            result.Should().BeEmpty();
+        }
+
+        [Fact]
         public void AddSourceQueryString_ReturnsExpectedResultClassWithClass()
         {
             var mock = new MockQueryString2
@@ -76,7 +93,24 @@ namespace Power.QueryStringBuilder.Tests
 
             var result = queryString.QueryStringCollection.ToString();
 
-            result.Should().Be($"Data=2020-10-02");
+            result.Should().Be("Data=2020-10-02");
+        }
+
+        [Fact]
+        public void AddSourceQueryString_ReturnsExpectedResultClassWithNullableDate()
+        {
+            var mock = new MockQueryStringZero
+            {
+                Data = null
+            };
+
+            var queryString = new QueryString();
+
+            queryString.AddSourceQueryString(mock);
+
+            var result = queryString.QueryStringCollection.ToString();
+
+            result.Should().BeEmpty();
         }
 
         [Fact]
@@ -256,12 +290,12 @@ namespace Power.QueryStringBuilder.Tests
 
     internal class MockQueryStringZero
     {
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
     }
 
     internal class MockQueryString1
     {
-        public int Status { get; set; }
+        public int? Status { get; set; }
         public string Teste { get; set; }
     }
 
